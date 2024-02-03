@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  h1= title
+
+  // Add Select2 CSS from CDN
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css")
+
+  form(method="POST")
+    div.form-group
+      label(for="items") Items: 
+      // Apply Select2 to the items dropdown
+      select#items.form-control(name="items" multiple required)
+        option(value="") ---Please select item(s)---
+        each item in items || allItems
+          option(value=item._id, selected=selectedItems && selectedItems.includes(item._id.toString()))
+            = `${item.name} - ${item.category} - $${item.price}`
+
+    div.form-group
+      label(for="company_name") Company Name:
+      input(type="text" name="company_name" class="form-control" value=(supplier && supplier.company_name) || '' required)
+
+    div.form-group
+      label(for="contact_person") Contact Person:
+      input(type="text" name="contact_person" class="form-control" value=(supplier && supplier.contact_person) || '' required)
+
+    div.form-group
+      label(for="email") Email:
+      input(type="email" name="email" class="form-control" value=(supplier && supplier.email) || '' required)
+
+    div.form-group
+      label(for="phone") Phone:
+      input(type="tel" name="phone" class="form-control" value=(supplier && supplier.phone) || '' required)
+
+    div.form-group
+      label(for="address") Address:
+      input(type="text" name="address" class="form-control" value=(supplier && supplier.address) || '' required)
+
+    // Add Select2 JS from CDN
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js")
+    script.
+      // Initialize Select2 on the items dropdown
+      $(document).ready(function() {
+          $('#items').select2();
+      });
+    
+    button.btn.btn-primary(type="submit") Submit
+
+    if errors 
+      ul 
+        for error in errors 
+          li!= error.msg

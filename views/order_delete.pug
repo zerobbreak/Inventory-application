@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+
+  p Are you sure you want to delete this order?
+
+  dl
+    dt Items:
+    dd
+      each item in order.items
+        p= `${item.name} - ${item.category} - $${item.price}`
+
+    dt Order Date:
+    dd= order.order_date_format
+
+    dt Status:
+    dd= order.status
+
+  form(method="POST" action=action)
+    button.btn.btn-danger(type="submit") Delete Order

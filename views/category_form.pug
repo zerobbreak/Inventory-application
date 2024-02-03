@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method="POST")
+    div.form-group
+      label(for="name") Category Name:
+      input#name.form-control(type="text" name="name" value=name required)
+
+    div.form-group
+      label(for="description") Description:
+      textarea#description.form-control(name="description" rows="4" required)= description
+
+    button.btn.btn-primary(type="submit") Save
+
+    if errors
+      ul
+        each error in errors
+          li= error.msg

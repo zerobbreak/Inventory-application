@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1= title
+    .products-section
+        each category in categories
+            .product-card
+                p Category: #{category.name}
+                a(href=category.url) View Details

@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+  if order
+    .order-details
+      h2.order-heading Order Details
+      .order-info
+        p Status: 
+          span(class=`status-${order.status.toLowerCase()}`)= order.status
+        p.date Order Date: #{order.order_date_format}
+      ul.items-list
+        each item in order.items
+          li.item
+            span.item-name #{item.name}
+            span.item-description #{item.description}
+            span.item-price $#{item.price}
+      p Total: $#{total_price.toFixed(2)}
+      
+      div(style='display: flex; align-items: center; gap: 20px; padding: 10px')
+        p(style='background-color: #050505; padding: 20px; border-radius: 5px;')
+          a(style='color: white')(href=order.url+'/delete') Delete Order
+        p(style='background-color: #050505; padding: 20px; border-radius: 5px;')
+          a(style='color: white')(href=order.url+'/update') Update Order
+
+
+  else
+    .order-not-found
+      p Order not found.
+      a.back-link(href="/orders") Back to Orders

@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .dashboard
+    h1= title
+
+    h3(style="margin: 10px") #[strong Stock: ] !{number_of_stock}
+
+    if last_orders.length > 0
+      h2 Last Orders
+      .orders-container(style="display: flex; flex-wrap: wrap; gap: 20px;")
+        each order in last_orders
+          .order-card(style="border: 1px solid #ccc; padding: 20px; border-radius: 8px; width: 400px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);")
+            //- p Order Status: #{order.status}
+            if order.status == "Shipped"
+              span.text-success #{order.status}
+            else if order.status === "Pending"
+              span.text-danger #{order.status}
+            else 
+              span.text-warning #{order.status}
+            h4 Order Date: #{order.order_date_format}
+            ul(style="list-style: none; padding: 0;")
+              each item in order.items
+                li
+                  .item-details(style="display: flex; justify-content: space-between; align-items: center;")
+                    .item-name(style="font-weight: bold;") #{item.name}
+                    .item-price(style="color: #777;") Price: $#{item.price}
+            a(href=order.url) View Order
+          //- Add additional styling as needed
+    else
+      p No orders found.

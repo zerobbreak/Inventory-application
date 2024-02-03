@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  h1= title
+
+  // Add Select2 CSS from CDN
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css")
+
+  form(method="POST")
+    div.form-group
+      label(for="items") Items: 
+      // Apply Select2 to the items dropdown
+      select#items.form-control(name="items" multiple required)
+        option(value="") ---Please select item(s)---
+        each item in items
+          - const isSelected = order && order.items && order.items.some(selectedItem => selectedItem.equals(item._id))
+          option(value=item._id, selected=isSelected)
+            = `${item.name} - ${item.category} - $${item.price}`
+
+    div.form-group
+      label(for="order_date") Order Date:
+      input(type="date" name="order_date" value=(order && order.order_date_format) || '' required)
+
+    div.form-group
+      label(for="status") Status: 
+      select#status.form-control(name="status" required)
+        option(value="") ---Please select a status---
+        each val in ["Pending", "Shipped", "Delivered"]
+          option(value=val, selected=order && order.status === val)
+            = val 
+    
+    // Add Select2 JS from CDN
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js")
+    script.
+      // Initialize Select2 on the items dropdown
+      $(document).ready(function() {
+          $('#items').select2();
+      });
+    
+    button.btn.btn-primary(type="submit") #{submitButton} 
+
+    if errors 
+      ul 
+        for error in errors 
+          li!= error.msg

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1= title
+    .products-section
+        each item in item_list
+            .product-card
+                h2= item.name
+                p Category: #{item.category.name}
+                p Price:$#{item.price}
+                p Supplier: #{item.supplier ? item.supplier.company_name : 'N/A'}
+                a(href=item.url) View Details

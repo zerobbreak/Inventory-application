@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    .form-container
+        h1= title
+
+        if errors
+            .error-container
+                .alert.alert-danger
+                    each error in errors
+                        p= error.msg
+
+        form(method="POST" action=action)
+            .form-group
+                label(for="name") Name:
+                input(type="text" name="name" class="form-control" placeholder="Enter item name" value=(item ? item.name : "") required)
+
+            .form-group
+                label(for="description") Description:
+                input(type="text" name="description" class="form-control" placeholder="Enter item description" value=(item ? item.description : "") required)
+
+            .form-group
+                label(for="price") Price:
+                div.input-group
+                    span.input-group-text($)= '$'
+                    input(type="number" name="price" class="form-control" placeholder="Enter item price" value=(item ? item.price : "") required)
+
+            .form-group
+                label(for="category") Category:
+                select(name="category" class="form-control" required)
+                    each category in categories
+                        //- Pre-select the current category if it matches the item's category
+                        if item && category._id.toString() === item.category.toString()
+                            option(value=category._id selected)= category.name
+                        else
+                            option(value=category._id)= category.name
+
+            .form-group
+                label(for="supplier") Supplier:
+                select(name="supplier" class="form-control" required)
+                    each supplier in suppliers
+                        //- Pre-select the current supplier if it matches the item's supplier
+                        if item && supplier._id.toString() === item.supplier.toString()
+                            option(value=supplier._id selected)= supplier.company_name
+                        else
+                            option(value=supplier._id)= supplier.company_name
+
+            button.btn.btn-primary(type="submit")= (item ? "Update" : "Create") + " Item"

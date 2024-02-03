@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    h1= title
+
+    h2.supplier-title #{supplier.company_name} - Items
+
+    ul.items-list
+        each item in items
+            li.item-item
+                div.item-header
+                    h3.item-name #{item.name}
+                    p.item-category Category: #{item.category}
+                p.item-description #{item.description}
+                p.item-price Price: $#{item.price}
+                // Add other item details as needed
+                a.btn.btn-primary(href=item.url) View Details
+    
+    div(style='display: flex; align-items: center; gap: 20px; padding: 10px')
+        p(style='background-color: #050505; padding: 20px; border-radius: 5px;')
+            a(style='color: white')(href=supplier.url+'/delete') Delete Supplier
+        p(style='background-color: #050505; padding: 20px; border-radius: 5px;')
+            a(style='color: white')(href=supplier.url+'/update') Update Supplier

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    .delete-container
+        h1= title
+
+        if item
+            p.confirmation-message Are you sure you want to delete the following item?
+            ul.item-details
+                li Name: #{item.name}
+                li Description: #{item.description}
+                li Category: #{item.category.name}
+                li Price: $#{item.price}
+                li Supplier: #{item.supplier ? item.supplier.company_name : 'N/A'}
+            
+            form(method="POST" class="delete-form")
+                button.btn.btn-danger(type="submit") Delete
+        else
+            p.not-found-message Item not found.
+
+        a.btn.btn-primary(href=item ? item.url : "/items") Back to Items

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1= title
+
+    ul.supplier-list
+        each supplier in suppliers
+            li.supplier-item
+                if supplier.image
+                    img.profile-image(src=supplier.image, alt='Supplier Image')
+                else
+                    div.initials-container
+                        span.initials #{supplier.contact_person.substring(0, 2).toUpperCase()}
+
+                div.supplier-details
+                    p.company-name #{supplier.company_name} | #{supplier.contact_person}
+                    p.contact-details #{supplier.email} --- #{supplier.phone}
+                    p.address #{supplier.address}
+                a(href=supplier.url) View details

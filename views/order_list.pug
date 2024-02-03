@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+
+  if orders.length > 0
+    each order in orders
+      .order-container
+        h2 Order #{order.orderNumber}
+        p Status:
+          span(class=`status-${order.status.toLowerCase()}`)= order.status
+        p Order Date: #{order.order_date_format}
+        ul
+          each item in order.items
+            li
+              span Item: #{item.name} - #{item.description}
+              span Price: $#{item.price}
+        p.total-price Total: $#{calculateTotalPrice(order.items)} <!-- Use calculateTotalPrice function -->
+        a(href=order.url) View Details
+  else
+    p No orders found.

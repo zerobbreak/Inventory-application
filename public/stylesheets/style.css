@@ -1,0 +1,580 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.products-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+  }
+
+  p {
+    margin: 5px 0;
+    font-size: 0.9em;
+  }
+
+  a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+  }
+}
+
+.product-detail {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail h2 {
+  color: #333;
+}
+
+.product-info p {
+  margin: 10px 0;
+}
+
+.product-info .description {
+  font-style: italic;
+}
+
+.product-info .category,
+.product-info .price,
+.product-info .supplier {
+  font-weight: bold;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.error-container {
+  margin-bottom: 20px;
+}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.delete-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-container h1 {
+  color: #333;
+}
+
+.confirmation-message {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.item-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-details li {
+  margin-bottom: 10px;
+}
+
+.delete-form {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.not-found-message {
+  color: #dc3545;
+  font-size: 18px;
+}
+
+/* Order Styling */
+.order-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.order-container:hover {
+  transform: scale(1.02);
+}
+
+.order-container h2 {
+  color: #3498db;
+  margin-bottom: 15px;
+}
+
+.order-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order-container li {
+  margin-bottom: 8px;
+}
+
+/* Link Styling */
+.order-container a {
+  text-decoration: none;
+  color: #3498db;
+  cursor: pointer;
+}
+
+.order-container a:hover {
+  color: #2078b4;
+}
+
+/* Button Styling */
+.order-container button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.order-container button:hover {
+  background-color: #2078b4;
+}
+
+.total-price {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+/* Status Styling */
+.status-pending {
+  color: #e74c3c; /* Red */
+}
+
+.status-shipped {
+  color: #f39c12; /* Orange */
+}
+
+.status-delivered {
+  color: #2ecc71; /* Green */
+}
+
+.order-details {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-heading {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.order-info {
+  margin-bottom: 20px;
+}
+
+.status,
+.date,
+.total {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.items-list {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.item-price {
+  float: right;
+  color: #28a745;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.back-link:hover {
+  color: #0056b3;
+}
+
+/* Style for category-details class */
+.category-details {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for category-description class */
+.category-description {
+  margin-bottom: 20px;
+}
+
+/* Style for actions-container class */
+.actions-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* Style for delete-action class */
+.delete-action {
+  background-color: #e74c3c;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-action:hover {
+  background-color: #c0392b;
+}
+
+/* Style for update-action class */
+.update-action {
+  background-color: #2ecc71;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-action:hover {
+  background-color: #27ae60;
+}
+
+/* Add your existing styles */
+
+/* Styles for the supplier title */
+.supplier-title {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Styles for each item */
+.item-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Styles for the item header */
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styles for the item details */
+.item-description,
+.item-category,
+.item-price {
+  margin-top: 10px;
+}
+
+/* Styles for the View Details button */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for the product detail page */
+.product-detail {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail h2 {
+  color: #333;
+}
+
+.product-info p {
+  margin: 10px 0;
+}
+
+.product-info .description {
+  font-style: italic;
+}
+
+.product-info .category,
+.product-info .price,
+.product-info .supplier {
+  font-weight: bold;
+}
+
+/* Styles for the form container */
+.form-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Styles for the error container */
+.error-container {
+  margin-bottom: 20px;
+}
+
+/* Styles for the alert */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+/* Styles for the delete container */
+.delete-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-container h1 {
+  color: #333;
+}
+
+/* Styles for the confirmation message */
+.confirmation-message {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Styles for the item details */
+.item-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-details li {
+  margin-bottom: 10px;
+}
+
+/* Styles for the delete form */
+.delete-form {
+  margin-top: 20px;
+}
+
+/* Styles for the delete button */
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Styles for the primary button */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* Styles for the not found message */
+.not-found-message {
+  color: #dc3545;
+  font-size: 18px;
+}
+
+/* Add this to your existing CSS file */
+
+.supplier-list {
+  list-style: none;
+  padding: 0;
+}
+
+.supplier-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.initials-container {
+  width: 60px;
+  height: 60px;
+  background-color: #3498db;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  color: white;
+  margin-right: 20px;
+}
+
+.initials {
+  font-weight: bold;
+}
+
+.supplier-details {
+  flex-grow: 1;
+}
+
+.company-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-details {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.address {
+  font-style: italic;
+  color: #666;
+}
+
+.view-details-btn {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.view-details-btn:hover {
+  color: #0056b3;
+}

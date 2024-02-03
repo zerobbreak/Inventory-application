@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    .product-detail
+        h2= title
+        .product-info
+            p(class="description") Description: #{item.description}
+            p(class="category") Category: #{item.category.name}
+            p(class="price") Price: $#{item.price}
+            p(class="supplier") Supplier: #{item.supplier ? item.supplier.company_name : 'N/A'}
+
+        hr
+        div(style='display: flex; align-items: center; gap: 20px; padding: 10px')
+            p(style='background-color: #050505; padding: 20px; border-radius: 5px;')
+                a(style='color: white')(href=item.url+'/delete') Delete Item
+            p(style='background-color: #050505; padding: 20px; border-radius: 5px;')
+                a(style='color: white')(href=item.url+'/update') Update Item
