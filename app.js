@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const mongoose = require("mongoose");
 
 var indexRouter = require('./routes/index');
 const inventoryRouter = require("./routes/inventory");
@@ -22,6 +21,8 @@ const limiter = RateLimiter({
 
 app.use(limiter);
 
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
 const dev_db_url =
   "mongodb+srv://your_user_name:your_password@cluster0.lz91hw2.mongodb.net/local_library?retryWrites=true&w=majority";
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
